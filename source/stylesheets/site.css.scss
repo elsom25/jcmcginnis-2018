@@ -2,27 +2,85 @@
 
 @import 'bourbon/bourbon';
 
-body {
-  background-color: #fbc547;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
-    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
-    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
-    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 18vh 1rem;
-  text-align: center;
+$background-color: #fafafa;
+$font-color: rgba(0,0,0,.84);
+$nav-screen-media: "(min-width: 37.5rem)";
+
+::-moz-selection {
+  background: darken($background-color, 5%);
+  color: #e44f4f;
 }
 
-a {
-  color: rgba(#000, 0.7);
+::selection {
+  background: darken($background-color, 5%);
+  color: #e44f4f;
+}
 
-  &:focus,
-  &:hover {
-    color: rgba(#000, 0.6);
+// Maybe?
+html.soft {
+  background: $background-color;
+  section {
+    @include border-right-radius(3px);
+    box-shadow: 0 1px 3px transparentize(#000, .88), 0 1px 2px transparentize(#000, .76);
   }
 }
 
-.middleman-logo {
-  margin-bottom: 1rem;
-  width: 10rem;
+html {
+  background: #fff;
+  color: $font-color;
+  height: 100%;
+  min-height: 100%;
+}
+
+main {
+  margin: 2rem 1rem;
+
+  font-family: 'Source Code Pro', monospace, sans-serif;
+  line-height: 1.4;
+}
+
+section {
+  @media (min-width: 27rem)   {
+    @include margin(10vh null null 5.55vw);
+    padding: .75rem .75rem .75rem 1.65rem;
+  }
+  @media (min-width: 37.5rem) {
+    @include margin(18vh null null 10vw);
+    padding-left: 1rem 1rem 1rem 2.25rem;
+  }
+
+  background: lighten($background-color, 100%);
+  border-left: .15rem solid;
+  max-width: 25rem;
+  padding: .5rem .25rem .5rem 1.15rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.68) 50%, rgba(0,0,0,0) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px .1em;
+  background-position: 0 1.07em;
+
+  &:focus,
+  &:hover {
+    color: #000;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.84) 50%, rgba(0,0,0,0) 50%);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 }
