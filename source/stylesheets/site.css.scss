@@ -2,32 +2,24 @@
 
 @import 'bourbon/bourbon';
 
-$background-color: #fafafa;
+$background-color: #fdf6e3;
 $font-color: rgba(0,0,0,.84);
+$accent-color: #e44f4f;
+
 $nav-screen-media: "(min-width: 37.5rem)";
 
-::-moz-selection {
+@mixin selection {
   background: darken($background-color, 5%);
-  color: #e44f4f;
+  color: $accent-color;
 }
 
-::selection {
-  background: darken($background-color, 5%);
-  color: #e44f4f;
-}
-
-// Maybe?
-html.soft {
-  background: $background-color;
-  section {
-    @include border-right-radius(3px);
-    box-shadow: 0 1px 3px transparentize(#000, .88), 0 1px 2px transparentize(#000, .76);
-  }
-}
+::-moz-selection { @include selection; }
+::selection { @include selection; }
 
 html {
-  background: #fff;
+  background: $background-color;
   color: $font-color;
+  font-weight: 300;
   height: 100%;
   min-height: 100%;
 }
@@ -40,7 +32,7 @@ main {
 }
 
 section {
-  @media (min-width: 27rem)   {
+  @media (min-width: 27rem) {
     @include margin(10vh null null 5.55vw);
     padding: .75rem .75rem .75rem 1.65rem;
   }
@@ -49,15 +41,15 @@ section {
     padding-left: 1rem 1rem 1rem 2.25rem;
   }
 
-  background: lighten($background-color, 100%);
   border-left: .15rem solid;
   max-width: 25rem;
   padding: .5rem .25rem .5rem 1.15rem;
 }
 
 h1 {
-  text-transform: uppercase;
+  font-weight: 400;
   margin-top: 0;
+  text-transform: uppercase;
 }
 
 p:last-child {
@@ -68,15 +60,16 @@ a {
   color: $font-color;
   text-decoration: none;
 
-  background-image: linear-gradient(to bottom, rgba(0,0,0,.68) 50%, rgba(0,0,0,0) 50%);
+  background-image: linear-gradient(to bottom, transparentize($font-color, 0.16) 50%, transparent 50%);
   background-repeat: repeat-x;
   background-size: 2px .1em;
   background-position: 0 1.07em;
 
   &:focus,
   &:hover {
-    color: #000;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.84) 50%, rgba(0,0,0,0) 50%);
+    color: transparentize($font-color, 0.08);
+    background-image: linear-gradient(to bottom, $font-color 50%, transparent 50%);
+    font-weight: 400;
   }
 
   &:active {
