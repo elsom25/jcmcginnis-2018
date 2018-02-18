@@ -42,8 +42,7 @@ end
 activate :deploy do |deploy|
   deploy.build_before = true
   deploy.deploy_method = :git
-  deploy.remote   = 'live' # remote name or git url, default: origin
+  deploy.remote   = 'jcmcginn@143.95.38.6:/home/jcmcginn/repos/jcmcginnis-2018.git' # remote name or git url, default: origin
   deploy.branch   = 'master' # default: gh-pages
   deploy.strategy = :force_push      # commit strategy: can be :force_push or :submodule, default: :force_push
-  # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
