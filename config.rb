@@ -44,5 +44,5 @@ activate :deploy do |deploy|
   deploy.deploy_method = :git
   deploy.remote   = 'jcmcginn@143.95.38.6:/home/jcmcginn/repos/jcmcginnis-2018.git' # remote name or git url, default: origin
   deploy.branch   = 'master' # default: gh-pages
-  deploy.strategy = :force_push      # commit strategy: can be :force_push or :submodule, default: :force_push
+  deploy.strategy = :force_push # commit strategy: can be :force_push or :submodule, default: :force_push
 end
